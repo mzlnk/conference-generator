@@ -1,9 +1,11 @@
 package pl.mzlnk.conferencegenerator.entity.attendee;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
+@Getter
 @AllArgsConstructor
 @Table(name = "conference_day_attendee")
 public class ConferenceDayAttendee extends BaseEntity {

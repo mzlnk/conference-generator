@@ -7,20 +7,20 @@ import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 @Getter
 @AllArgsConstructor
-@Table(name = "conference_day_order_item")
-public class ConferenceDayOrderItem extends BaseEntity {
+@Table(name = "workshop_order_item")
+public class WorkshopOrderItem extends BaseEntity {
 
     @PrimaryKey
     @AutoIncrement
-    @Column(name = "conference_day_order_item_id")
-    private int conferenceDayOrderItemId;
+    @Column(name = "workshop_order_item_id")
+    private int workshopOrderItemId;
 
     @ForeignKey
-    @Column(name = "order_id")
-    private int orderId;
+    @Column(name = "conference_day_order_id")
+    private int conferenceDayOrderId;
 
     @ForeignKey
-    @Column(name = "conference_day_id")
-    private int conferenceDayId;
+    @Column(name = "workshop_id")
+    private int workshopId;
 
 }

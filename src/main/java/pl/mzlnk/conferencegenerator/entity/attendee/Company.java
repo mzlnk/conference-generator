@@ -1,12 +1,11 @@
 package pl.mzlnk.conferencegenerator.entity.attendee;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
-import pl.mzlnk.conferencegenerator.generator.annotations.AutoIncrement;
-import pl.mzlnk.conferencegenerator.generator.annotations.Column;
-import pl.mzlnk.conferencegenerator.generator.annotations.PrimaryKey;
-import pl.mzlnk.conferencegenerator.generator.annotations.Table;
+import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
+@Getter
 @AllArgsConstructor
 @Table(name = "company")
 public class Company extends BaseEntity {
