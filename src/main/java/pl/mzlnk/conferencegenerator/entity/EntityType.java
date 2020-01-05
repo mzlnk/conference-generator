@@ -1,0 +1,21 @@
+package pl.mzlnk.conferencegenerator.entity;
+
+public enum EntityType {
+
+    ATTENDEE,
+    COMPANY,
+    CONFERENCE_DAY_ATTENDEE,
+    STUDENT_ATTENDEE,
+    WORKSHOP_ATTENDEE,
+
+    CONFERENCE,
+    CONFERENCE_DAY,
+    CONFERENCE_DAY_PRICE,
+    WORKSHOP,
+
+    BUYER,
+    ORDER,
+    CONFERENCE_DAY_ORDER_ITEM,
+    WORKSHOP_ORDER_ITEM;
+
+}

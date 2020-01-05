@@ -1,12 +1,19 @@
 package pl.mzlnk.conferencegenerator.entity;
 
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
 import pl.mzlnk.conferencegenerator.generator.annotations.PrimaryKey;
 
 import java.lang.reflect.Field;
 
-@NoArgsConstructor
-public abstract class BaseEntity implements Identifiable {
+public abstract class BaseEntity implements Entity {
+
+    @Getter
+    private EntityType entityType;
+
+    public BaseEntity(@NonNull EntityType entityType) {
+        this.entityType = entityType;
+    }
 
     @Override
     public int getId() {
@@ -41,7 +48,7 @@ public abstract class BaseEntity implements Identifiable {
         if (object == null || object.getClass() != this.getClass())
             return false;
 
-        Identifiable other = (Identifiable) object;
+        Entity other = (Entity) object;
 
         return this.getId() == other.getId();
     }

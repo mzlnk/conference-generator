@@ -1,7 +1,8 @@
 package pl.mzlnk.conferencegenerator.entity;
 
-public interface Identifiable {
+public interface Entity {
 
     int getId();
+    EntityType getEntityType();
 
 }

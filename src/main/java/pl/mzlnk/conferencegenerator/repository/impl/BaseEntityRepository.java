@@ -1,11 +1,12 @@
 package pl.mzlnk.conferencegenerator.repository.impl;
 
-import pl.mzlnk.conferencegenerator.entity.Identifiable;
+import pl.mzlnk.conferencegenerator.entity.Entity;
+import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
 import pl.mzlnk.conferencegenerator.repository.EntityRepository;
 
 import java.util.*;
 
-public abstract class BaseRepository<E extends Identifiable> implements EntityRepository<E> {
+public abstract class BaseEntityRepository<E extends Entity> implements EntityRepository<E> {
 
     private Map<Integer, E> entities = new HashMap<>();
 

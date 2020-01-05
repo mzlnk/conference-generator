@@ -5,14 +5,14 @@ import pl.mzlnk.conferencegenerator.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 @Getter
-@AllArgsConstructor
+@Builder
 @Table(name = "attendee")
 public class Attendee extends BaseEntity {
 
     @PrimaryKey
     @AutoIncrement
     @Column(name = "attendee_id")
-    private String attendeeId;
+    private int attendeeId;
 
     @Column(name = "first_name")
     private String firstName;

@@ -1,11 +1,11 @@
 package pl.mzlnk.conferencegenerator.repository;
 
-import pl.mzlnk.conferencegenerator.entity.Identifiable;
+import pl.mzlnk.conferencegenerator.entity.Entity;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface EntityRepository<E extends Identifiable> {
+public interface EntityRepository<E extends Entity> {
 
     List<E> findAll();
     Optional<E> findById(int id);
