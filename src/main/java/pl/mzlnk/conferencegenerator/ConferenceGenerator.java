@@ -1,9 +1,8 @@
 package pl.mzlnk.conferencegenerator;
 
-import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
-import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;
 import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
+import pl.mzlnk.conferencegenerator.service.FileService;
+import pl.mzlnk.conferencegenerator.service.impl.FileServiceImpl;
 
 import static pl.mzlnk.conferencegenerator.utils.TerminalUtil.WELCOME_TITLE;
 
@@ -11,19 +10,19 @@ public class ConferenceGenerator {
 
     public static ConferenceGenerator app;
 
-    public EntitiesRepository entitiesRepository;
+    public final FileService fileService;
+    public final EntitiesRepository entitiesRepository;
 
     public ConferenceGenerator() {
         app = this;
 
+        fileService = FileServiceImpl.init();
         entitiesRepository = EntitiesRepository.init();
     }
 
     public static void main(String[] args) {
         ConferenceGenerator generator = new ConferenceGenerator();
         generator.run();
-
-        EntityRepository<Attendee> repository = generator.entitiesRepository.getRepository(EntityType.ATTENDEE);
     }
 
     public void run() {
