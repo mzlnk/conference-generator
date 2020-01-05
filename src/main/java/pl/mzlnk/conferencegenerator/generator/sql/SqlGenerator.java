@@ -1,4 +1,7 @@
 package pl.mzlnk.conferencegenerator.generator.sql;
 
-public class SqlGenerator {
+public interface SqlGenerator {
+
+    void generateSqlFile();
+
 }
