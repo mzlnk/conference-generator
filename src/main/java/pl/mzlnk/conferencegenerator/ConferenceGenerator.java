@@ -2,8 +2,8 @@ package pl.mzlnk.conferencegenerator;
 
 import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
-import pl.mzlnk.conferencegenerator.repository.EntityRepository;
-import pl.mzlnk.conferencegenerator.repository.impl.EntitiesRepository;
+import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;
+import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
 
 import static pl.mzlnk.conferencegenerator.utils.TerminalUtil.WELCOME_TITLE;
 

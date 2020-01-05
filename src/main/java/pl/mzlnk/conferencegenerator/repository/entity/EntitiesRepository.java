@@ -1,10 +1,9 @@
-package pl.mzlnk.conferencegenerator.repository.impl;
+package pl.mzlnk.conferencegenerator.repository.entity;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import pl.mzlnk.conferencegenerator.entity.Entity;
 import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.repository.EntityRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;

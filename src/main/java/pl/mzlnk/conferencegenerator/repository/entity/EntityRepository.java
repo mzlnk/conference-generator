@@ -1,4 +1,4 @@
-package pl.mzlnk.conferencegenerator.repository;
+package pl.mzlnk.conferencegenerator.repository.entity;
 
 import pl.mzlnk.conferencegenerator.entity.Entity;
 import pl.mzlnk.conferencegenerator.entity.EntityType;

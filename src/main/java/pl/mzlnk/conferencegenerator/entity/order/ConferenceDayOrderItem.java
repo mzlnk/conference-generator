@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.generator.annotations.*;
+import pl.mzlnk.conferencegenerator.utils.sql.*;
 
 @Getter
 @Table(name = "conference_day_order_item")

@@ -1,4 +1,4 @@
-package pl.mzlnk.conferencegenerator.generator.annotations;
+package pl.mzlnk.conferencegenerator.utils.sql;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,9 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Table {
-
-    String name();
+@Target(ElementType.FIELD)
+public @interface ForeignKey {
 
 }

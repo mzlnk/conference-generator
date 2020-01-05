@@ -3,7 +3,10 @@ package pl.mzlnk.conferencegenerator.entity.conference;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.generator.annotations.*;
+import pl.mzlnk.conferencegenerator.utils.sql.AutoIncrement;
+import pl.mzlnk.conferencegenerator.utils.sql.Column;
+import pl.mzlnk.conferencegenerator.utils.sql.PrimaryKey;
+import pl.mzlnk.conferencegenerator.utils.sql.Table;
 
 @Getter
 @Table(name = "conference")

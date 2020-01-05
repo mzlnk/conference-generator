@@ -2,7 +2,7 @@ package pl.mzlnk.conferencegenerator.entity;
 
 import lombok.Getter;
 import lombok.NonNull;
-import pl.mzlnk.conferencegenerator.generator.annotations.PrimaryKey;
+import pl.mzlnk.conferencegenerator.utils.sql.PrimaryKey;
 
 import java.lang.reflect.Field;
 

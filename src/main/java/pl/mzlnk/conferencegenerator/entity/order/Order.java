@@ -5,7 +5,7 @@ import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.entity.PaymentType;
-import pl.mzlnk.conferencegenerator.generator.annotations.*;
+import pl.mzlnk.conferencegenerator.utils.sql.*;
 
 import java.util.Calendar;
 
