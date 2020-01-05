@@ -26,7 +26,7 @@ public class ConferenceDay extends BaseEntity {
     @Column(name = "conference_day_id")
     private int conferenceDayId;
 
-    @ForeignKey
+    @ForeignKey(table = "conference", column = "conference_id")
     @Column(name = "conference_id")
     private int conferenceId;
 

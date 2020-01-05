@@ -30,7 +30,7 @@ public class Order extends BaseEntity {
     @Column(name = "order_id")
     private int orderId;
 
-    @ForeignKey
+    @ForeignKey(table = "buyer", column = "buyer_id")
     @Column(name = "buyer_id")
     private int buyerId;
 

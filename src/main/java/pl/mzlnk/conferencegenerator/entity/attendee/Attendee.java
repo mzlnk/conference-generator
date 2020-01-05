@@ -35,7 +35,7 @@ public class Attendee extends BaseEntity {
     @Column(name = "email")
     private String email;
 
-    @ForeignKey
+    @ForeignKey(table = "company", column = "company_id")
     @Column(name = "company_id")
     private int companyId;
 

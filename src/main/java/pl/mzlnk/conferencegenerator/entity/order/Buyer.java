@@ -26,7 +26,7 @@ public class Buyer extends BaseEntity {
     @Column(name = "buyer_id")
     private int buyerId;
 
-    @ForeignKey
+    @ForeignKey(table = "company", column = "company_id")
     @Column(name = "company_id")
     private int companyId;
 

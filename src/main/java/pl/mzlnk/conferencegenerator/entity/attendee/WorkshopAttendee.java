@@ -24,11 +24,11 @@ public class WorkshopAttendee extends BaseEntity {
     @Column(name = "workshop_attendee_id")
     private int workshopAttendeeId;
 
-    @ForeignKey
+    @ForeignKey(table = "conference_day_attendee", column = "conference_day_attendee_id")
     @Column(name = "conference_day_attendee_id")
     private int conferenceDayAttendeeId;
 
-    @ForeignKey
+    @ForeignKey(table = "workshop_order_item", column = "workshop_order_item_id")
     @Column(name = "workshop_order_item_id")
     private int workshopOrderItemId;
 

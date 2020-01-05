@@ -24,11 +24,11 @@ public class ConferenceDayOrderItem extends BaseEntity {
     @Column(name = "conference_day_order_item_id")
     private int conferenceDayOrderItemId;
 
-    @ForeignKey
+    @ForeignKey(table = "order", column = "order_id")
     @Column(name = "order_id")
     private int orderId;
 
-    @ForeignKey
+    @ForeignKey(table = "conference_day", column = "conference_day_id")
     @Column(name = "conference_day_id")
     private int conferenceDayId;
 

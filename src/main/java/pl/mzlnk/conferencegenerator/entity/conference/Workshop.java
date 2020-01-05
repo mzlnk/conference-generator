@@ -31,7 +31,7 @@ public class Workshop extends BaseEntity {
     @Column(name = "workshop_id")
     private int workshopId;
 
-    @ForeignKey
+    @ForeignKey(table = "conference_day", column = "conference_day_id")
     @Column(name = "conference_day_id")
     private int conferenceDayId;
 

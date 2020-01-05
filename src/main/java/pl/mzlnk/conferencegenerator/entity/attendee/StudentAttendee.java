@@ -22,7 +22,7 @@ public class StudentAttendee extends BaseEntity {
     }
 
     @PrimaryKey
-    @ForeignKey
+    @ForeignKey(table = "attendee", column = "attendee_id")
     @Column(name = "attendee_id")
     private int attendeeId;
 
