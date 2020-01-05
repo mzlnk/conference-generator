@@ -1,7 +1,12 @@
 package pl.mzlnk.conferencegenerator.repository.impl;
 
+import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.entity.attendee.Company;
 
-public class CompanyRepository extends BaseEntityRepository<Company> {
+class CompanyRepository extends BaseEntityRepository<Company> {
+
+    CompanyRepository() {
+        super(EntityType.COMPANY);
+    }
 
 }

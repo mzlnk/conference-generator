@@ -1,7 +1,12 @@
 package pl.mzlnk.conferencegenerator.repository.impl;
 
+import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.entity.order.Order;
 
-public class OrderRepository extends BaseEntityRepository<Order> {
+class OrderRepository extends BaseEntityRepository<Order> {
+
+    OrderRepository() {
+        super(EntityType.ORDER);
+    }
 
 }
