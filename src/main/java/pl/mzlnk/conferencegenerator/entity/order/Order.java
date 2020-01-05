@@ -1,16 +1,29 @@
 package pl.mzlnk.conferencegenerator.entity.order;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
+import pl.mzlnk.conferencegenerator.entity.EntityType;
+import pl.mzlnk.conferencegenerator.entity.PaymentType;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 import java.util.Calendar;
 
 @Getter
-@AllArgsConstructor
 @Table(name = "order")
 public class Order extends BaseEntity {
+
+    @Builder
+    public Order(int orderId, int buyerId, boolean cancelled, PaymentType paymentType, double value, Calendar date) {
+        super(EntityType.ORDER);
+
+        this.orderId = orderId;
+        this.buyerId = buyerId;
+        this.cancelled = cancelled;
+        this.paymentType = paymentType;
+        this.value = value;
+        this.date = date;
+    }
 
     @PrimaryKey
     @AutoIncrement
@@ -25,7 +38,7 @@ public class Order extends BaseEntity {
     private boolean cancelled;
 
     @Column(name = "payment_type")
-    private String paymentType;
+    private PaymentType paymentType;
 
     @Column(name = "value")
     private double value;

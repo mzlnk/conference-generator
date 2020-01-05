@@ -1,14 +1,23 @@
 package pl.mzlnk.conferencegenerator.entity.order;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
+import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 @Getter
-@AllArgsConstructor
 @Table(name = "workshop_order_item")
 public class WorkshopOrderItem extends BaseEntity {
+
+    @Builder
+    public WorkshopOrderItem(int workshopOrderItemId, int conferenceDayOrderId, int workshopId) {
+        super(EntityType.WORKSHOP_ORDER_ITEM);
+
+        this.workshopOrderItemId = workshopOrderItemId;
+        this.conferenceDayOrderId = conferenceDayOrderId;
+        this.workshopId = workshopId;
+    }
 
     @PrimaryKey
     @AutoIncrement

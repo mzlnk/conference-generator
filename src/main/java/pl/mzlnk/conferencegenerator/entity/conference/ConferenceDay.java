@@ -1,16 +1,25 @@
 package pl.mzlnk.conferencegenerator.entity.conference;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
+import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 import java.util.Calendar;
 
 @Getter
-@AllArgsConstructor
 @Table(name = "conference_day")
 public class ConferenceDay extends BaseEntity {
+
+    @Builder
+    public ConferenceDay(int conferenceDayId, int conferenceId, Calendar date) {
+        super(EntityType.CONFERENCE_DAY);
+
+        this.conferenceDayId = conferenceDayId;
+        this.conferenceId = conferenceId;
+        this.date = date;
+    }
 
     @PrimaryKey
     @AutoIncrement

@@ -1,14 +1,23 @@
 package pl.mzlnk.conferencegenerator.entity.attendee;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import pl.mzlnk.conferencegenerator.entity.BaseEntity;
+import pl.mzlnk.conferencegenerator.entity.EntityType;
 import pl.mzlnk.conferencegenerator.generator.annotations.*;
 
 @Getter
-@AllArgsConstructor
 @Table(name = "workshop_attendee")
 public class WorkshopAttendee extends BaseEntity {
+
+    @Builder
+    public WorkshopAttendee(int workshopAttendeeId, int conferenceDayAttendeeId, int workshopOrderItemId) {
+        super(EntityType.WORKSHOP_ATTENDEE);
+
+        this.workshopAttendeeId = workshopAttendeeId;
+        this.conferenceDayAttendeeId = conferenceDayAttendeeId;
+        this.workshopOrderItemId = workshopOrderItemId;
+    }
 
     @PrimaryKey
     @AutoIncrement
