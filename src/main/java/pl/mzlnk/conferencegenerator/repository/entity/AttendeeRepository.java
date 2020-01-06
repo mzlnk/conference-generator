@@ -1,7 +1,7 @@
 package pl.mzlnk.conferencegenerator.repository.entity;
 
-import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
+import pl.mzlnk.conferencegenerator.model.entity.EntityType;
+import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
 
 class AttendeeRepository extends BaseEntityRepository<Attendee> {
 

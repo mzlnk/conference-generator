@@ -1,9 +1,9 @@
 package pl.mzlnk.conferencegenerator.generator.sql.impl.mssql;
 
-import pl.mzlnk.conferencegenerator.entity.Entity;
+import pl.mzlnk.conferencegenerator.model.entity.Entity;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.BaseSqlGenerator;
-import pl.mzlnk.conferencegenerator.generator.sql.utils.SqlEntityFieldParser;
-import pl.mzlnk.conferencegenerator.generator.sql.utils.SqlEntityRepositoryParser;
+import pl.mzlnk.conferencegenerator.generator.sql.utils.parser.SqlEntityFieldParser;
+import pl.mzlnk.conferencegenerator.generator.sql.utils.parser.SqlEntityRepositoryParser;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
 import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
 import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;

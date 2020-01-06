@@ -1,7 +1,7 @@
 package pl.mzlnk.conferencegenerator;
 
-import pl.mzlnk.conferencegenerator.entity.EntityType;
-import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
+import pl.mzlnk.conferencegenerator.model.entity.EntityType;
+import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.mssql.MsSqlGenerator;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;

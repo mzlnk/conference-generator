@@ -1,9 +1,9 @@
 package pl.mzlnk.conferencegenerator.generator.sql.impl;
 
 import lombok.AllArgsConstructor;
-import pl.mzlnk.conferencegenerator.entity.Entity;
+import pl.mzlnk.conferencegenerator.model.entity.Entity;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
-import pl.mzlnk.conferencegenerator.generator.sql.utils.EntityRepositoryDependencyComparator;
+import pl.mzlnk.conferencegenerator.generator.sql.utils.comparator.EntityRepositoryDependencyComparator;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
 import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
 import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;

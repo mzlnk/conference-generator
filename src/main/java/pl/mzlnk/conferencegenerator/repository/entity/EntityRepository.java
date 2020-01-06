@@ -1,7 +1,7 @@
 package pl.mzlnk.conferencegenerator.repository.entity;
 
-import pl.mzlnk.conferencegenerator.entity.Entity;
-import pl.mzlnk.conferencegenerator.entity.EntityType;
+import pl.mzlnk.conferencegenerator.model.entity.Entity;
+import pl.mzlnk.conferencegenerator.model.entity.EntityType;
 
 import java.util.List;
 import java.util.Optional;

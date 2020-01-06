@@ -1,7 +1,7 @@
 package pl.mzlnk.conferencegenerator.generator.sql.impl.mssql;
 
 import org.junit.jupiter.api.Test;
-import pl.mzlnk.conferencegenerator.entity.attendee.Attendee;
+import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
 
 import java.lang.reflect.Field;
 
