@@ -86,9 +86,10 @@ public class FileServiceImpl implements FileService {
 
     private void copyBuiltInFiles() {
         File appReadme = new File(workingDirectory, "README.txt");
-        File configReadme = new File(dir(CONFIG), "README.txt");
+        File configReadme = new File(dir(PROPERTIES), "README.txt");
         File dataReadme = new File(dir(DATA), "README.txt");
         File outReadme = new File(dir(RESULT), "README.txt");
+        File databaseProperties = new File(dir(PROPERTIES), "database.properties");
 
         ClassLoader classLoader = this.getClass().getClassLoader();
 
@@ -104,6 +105,9 @@ public class FileServiceImpl implements FileService {
             }
             if(!outReadme.exists()) {
                 FileUtils.copyFile(new File(classLoader.getResource("readme/result-readme.txt").getFile()), outReadme);
+            }
+            if(!databaseProperties.exists()) {
+                FileUtils.copyFile(new File(classLoader.getResource("properties/database.properties").getFile()), databaseProperties);
             }
         } catch (IOException e) {
             e.printStackTrace();

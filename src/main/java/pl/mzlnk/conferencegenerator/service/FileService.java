@@ -17,7 +17,7 @@ public interface FileService {
     public enum Directory {
 
         RESULT("result"),
-        CONFIG("config"),
+        PROPERTIES("properties"),
         DATA("data");
 
         @Getter

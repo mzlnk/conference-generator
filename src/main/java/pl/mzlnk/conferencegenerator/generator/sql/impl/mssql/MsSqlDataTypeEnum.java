@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 @Getter
 public enum MsSqlDataTypeEnum {
 
-    INT("INT", Integer.class),
+    INT("INT", int.class),
     VARCHAR("VARCHAR", String.class),
     TIMESTAMP("TIMESTAMP", Calendar.class);
 

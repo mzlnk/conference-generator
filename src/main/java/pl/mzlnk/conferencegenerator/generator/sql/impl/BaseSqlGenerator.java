@@ -82,6 +82,7 @@ public abstract class BaseSqlGenerator implements SqlGenerator {
                 .forEach(repository -> {
                     this.builder
                             .append(createTableSql(repository))
+                            .append(NEW_LINE)
                             .append(NEW_LINE);
                 });
     }

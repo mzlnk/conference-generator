@@ -1,17 +1,36 @@
 package pl.mzlnk.conferencegenerator.generator.sql.utils;
 
-import lombok.AllArgsConstructor;
+import pl.mzlnk.conferencegenerator.entity.Entity;
 import pl.mzlnk.conferencegenerator.utils.sql.*;
 
 import java.lang.reflect.Field;
 
-@AllArgsConstructor
 public class SqlEntityFieldParser {
 
+    private final Entity entity;
     private final Field field;
 
+    public SqlEntityFieldParser(Field field) {
+        this(field, null);
+    }
+
+    public SqlEntityFieldParser(Field field, Entity entity) {
+        this.field = field;
+        this.entity = entity;
+
+        this.field.setAccessible(true);
+    }
+
+    public String getStringValue() {
+        try {
+            return String.valueOf(field.get(entity));
+        } catch (IllegalAccessException e) {
+            return ""; // todo: add log support here
+        }
+    }
+
     public String getColumnName() {
-        return field.getDeclaredAnnotation(Table.class).name();
+        return field.getDeclaredAnnotation(Column.class).name();
     }
 
     public Class<?> getColumnType() {

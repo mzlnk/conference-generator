@@ -12,15 +12,15 @@ public class ConferenceGeneratorProperties {
 
     private static final String PROPERTIES_FILE = "database.properties";
 
-    private String databaseName = "";
-    private String databaseScheme = "";
+    private String databaseName;
+    private String databaseScheme;
 
     public ConferenceGeneratorProperties(FileService fileService) {
         loadProperties(fileService);
     }
 
     private void loadProperties(FileService fileService) {
-        fileService.findFile(FileService.Directory.CONFIG, PROPERTIES_FILE).ifPresent(file -> {
+        fileService.findFile(FileService.Directory.PROPERTIES, PROPERTIES_FILE).ifPresent(file -> {
             Properties properties = new Properties();
 
             try {
