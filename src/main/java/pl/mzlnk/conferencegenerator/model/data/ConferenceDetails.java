@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class Person {
+public class ConferenceDetails {
 
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String description;
 
 }

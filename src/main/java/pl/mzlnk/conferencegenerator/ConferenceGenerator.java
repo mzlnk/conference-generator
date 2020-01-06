@@ -5,7 +5,8 @@ import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.mssql.MsSqlGenerator;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
-import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
+import pl.mzlnk.conferencegenerator.repository.data.DataRepositories;
+import pl.mzlnk.conferencegenerator.repository.entity.EntityRepositories;
 import pl.mzlnk.conferencegenerator.service.FileService;
 import pl.mzlnk.conferencegenerator.service.impl.FileServiceImpl;
 
@@ -16,7 +17,8 @@ public class ConferenceGenerator {
     public static ConferenceGenerator app;
 
     public final FileService fileService;
-    public final EntitiesRepository entitiesRepository;
+    public final EntityRepositories entityRepositories;
+    public final DataRepositories dataRepositories;
     public final ConferenceGeneratorProperties properties;
     public final SqlGenerator sqlGenerator;
 
@@ -25,16 +27,17 @@ public class ConferenceGenerator {
 
         fileService = FileServiceImpl.init();
         properties = new ConferenceGeneratorProperties(fileService);
-        entitiesRepository = EntitiesRepository.init();
+        entityRepositories = EntityRepositories.init();
+        dataRepositories = DataRepositories.init(fileService);
 
-        sqlGenerator = new MsSqlGenerator(fileService, entitiesRepository, properties);
+        sqlGenerator = new MsSqlGenerator(fileService, entityRepositories, properties);
     }
 
     public static void main(String[] args) {
         ConferenceGenerator generator = new ConferenceGenerator();
         generator.run();
 
-        generator.entitiesRepository.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "smiths@example.com", 2));
+        generator.entityRepositories.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "smiths@example.com", 2));
 
         generator.sqlGenerator.generateSqlFile();
     }

@@ -5,7 +5,7 @@ import pl.mzlnk.conferencegenerator.generator.sql.impl.BaseSqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.utils.parser.SqlEntityFieldParser;
 import pl.mzlnk.conferencegenerator.generator.sql.utils.parser.SqlEntityRepositoryParser;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
-import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
+import pl.mzlnk.conferencegenerator.repository.entity.EntityRepositories;
 import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;
 import pl.mzlnk.conferencegenerator.service.FileService;
 
@@ -34,8 +34,8 @@ public class MsSqlGenerator extends BaseSqlGenerator {
 
     private static final String COMMA = ",";
 
-    public MsSqlGenerator(FileService fileService, EntitiesRepository entitiesRepository, ConferenceGeneratorProperties properties) {
-        super(fileService, entitiesRepository, properties);
+    public MsSqlGenerator(FileService fileService, EntityRepositories entityRepositories, ConferenceGeneratorProperties properties) {
+        super(fileService, entityRepositories, properties);
     }
 
     @Override

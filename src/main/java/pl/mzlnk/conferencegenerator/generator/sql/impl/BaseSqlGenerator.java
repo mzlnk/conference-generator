@@ -5,7 +5,7 @@ import pl.mzlnk.conferencegenerator.model.entity.Entity;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.utils.comparator.EntityRepositoryDependencyComparator;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
-import pl.mzlnk.conferencegenerator.repository.entity.EntitiesRepository;
+import pl.mzlnk.conferencegenerator.repository.entity.EntityRepositories;
 import pl.mzlnk.conferencegenerator.repository.entity.EntityRepository;
 import pl.mzlnk.conferencegenerator.service.FileService;
 
@@ -19,16 +19,16 @@ public abstract class BaseSqlGenerator implements SqlGenerator {
     private static final String RESULT_FILE = "result.sql";
 
     private FileService fileService;
-    private EntitiesRepository entitiesRepository;
+    private EntityRepositories entityRepositories;
 
     protected ConferenceGeneratorProperties properties;
 
     private EntityRepositoryDependencyComparator comparator = new EntityRepositoryDependencyComparator();
     private StringBuilder builder = new StringBuilder();
 
-    public BaseSqlGenerator(FileService fileService, EntitiesRepository entitiesRepository, ConferenceGeneratorProperties properties) {
+    public BaseSqlGenerator(FileService fileService, EntityRepositories entityRepositories, ConferenceGeneratorProperties properties) {
         this.fileService = fileService;
-        this.entitiesRepository = entitiesRepository;
+        this.entityRepositories = entityRepositories;
         this.properties = properties;
     }
 
@@ -65,7 +65,7 @@ public abstract class BaseSqlGenerator implements SqlGenerator {
     }
 
     private void generateDropTableSql() {
-        this.entitiesRepository.getAllRepositories()
+        this.entityRepositories.getAllRepositories()
                 .stream()
                 .sorted(this.comparator.reversed())
                 .forEach(repository -> {
@@ -76,7 +76,7 @@ public abstract class BaseSqlGenerator implements SqlGenerator {
     }
 
     private void generateCreateTableSql() {
-        this.entitiesRepository.getAllRepositories()
+        this.entityRepositories.getAllRepositories()
                 .stream()
                 .sorted(this.comparator)
                 .forEach(repository -> {
@@ -88,7 +88,7 @@ public abstract class BaseSqlGenerator implements SqlGenerator {
     }
 
     private void generateInsertIntoSql() {
-        this.entitiesRepository.getAllRepositories()
+        this.entityRepositories.getAllRepositories()
                 .stream()
                 .sorted(this.comparator)
                 .map(EntityRepository::findAll)
