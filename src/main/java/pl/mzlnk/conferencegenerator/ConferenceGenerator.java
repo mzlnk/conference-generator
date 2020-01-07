@@ -1,7 +1,7 @@
 package pl.mzlnk.conferencegenerator;
 
-import pl.mzlnk.conferencegenerator.model.entity.EntityType;
-import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
+import lombok.NoArgsConstructor;
+import pl.mzlnk.conferencegenerator.generator.entity.EntityGenerators;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.mssql.MsSqlGenerator;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
@@ -12,38 +12,44 @@ import pl.mzlnk.conferencegenerator.service.impl.FileServiceImpl;
 
 import static pl.mzlnk.conferencegenerator.utils.TerminalUtil.WELCOME_TITLE;
 
-public class ConferenceGenerator {
+@NoArgsConstructor
+public class ConferenceGenerator extends Application {
 
-    public static ConferenceGenerator app;
+    public static void main(String[] args) {
+        Application app = new ConferenceGenerator();
+        app.run();
+    }
 
-    public final FileService fileService;
-    public final EntityRepositories entityRepositories;
-    public final DataRepositories dataRepositories;
-    public final ConferenceGeneratorProperties properties;
-    public final SqlGenerator sqlGenerator;
+    private FileService fileService;
+    private ConferenceGeneratorProperties properties;
 
-    public ConferenceGenerator() {
-        app = this;
+    private EntityRepositories entityRepositories;
+    private DataRepositories dataRepositories;
 
+    private EntityGenerators entityGenerators;
+    private SqlGenerator sqlGenerator;
+
+    @Override
+    protected String welcomeTitle() {
+        return WELCOME_TITLE;
+    }
+
+    @Override
+    protected void init() {
         fileService = FileServiceImpl.init();
         properties = new ConferenceGeneratorProperties(fileService);
-        entityRepositories = EntityRepositories.init();
-        dataRepositories = DataRepositories.init(fileService);
 
+        entityRepositories = EntityRepositories.init();
+        dataRepositories = DataRepositories.init(fileService, properties);
+
+        entityGenerators = EntityGenerators.init();
         sqlGenerator = new MsSqlGenerator(fileService, entityRepositories, properties);
     }
 
-    public static void main(String[] args) {
-        ConferenceGenerator generator = new ConferenceGenerator();
-        generator.run();
-
-        generator.entityRepositories.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "smiths@example.com", 2));
-
-        generator.sqlGenerator.generateSqlFile();
-    }
-
-    public void run() {
-        System.out.println(WELCOME_TITLE);
+    @Override
+    protected void run() {
+        entityGenerators.generate();
+        sqlGenerator.generateSqlFile();
     }
 
 }
