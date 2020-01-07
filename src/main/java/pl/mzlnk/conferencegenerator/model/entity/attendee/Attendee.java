@@ -7,6 +7,7 @@ import pl.mzlnk.conferencegenerator.model.entity.EntityType;
 import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 
 @Getter
+@TableOrder(1)
 @Table(name = "attendee")
 public class Attendee extends BaseEntity {
 

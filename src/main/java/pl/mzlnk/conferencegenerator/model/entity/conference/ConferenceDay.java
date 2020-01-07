@@ -9,6 +9,7 @@ import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 import java.util.Calendar;
 
 @Getter
+@TableOrder(1)
 @Table(name = "conference_day")
 public class ConferenceDay extends BaseEntity {
 

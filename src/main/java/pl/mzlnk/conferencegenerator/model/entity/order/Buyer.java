@@ -2,12 +2,14 @@ package pl.mzlnk.conferencegenerator.model.entity.order;
 
 import lombok.Builder;
 import lombok.Getter;
+import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.TableOrder;
 import pl.mzlnk.conferencegenerator.model.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.model.entity.EntityType;
 import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 import pl.mzlnk.conferencegenerator.model.entity.attendee.Company;
 
 @Getter
+@TableOrder(1)
 @Table(name = "buyer")
 public class Buyer extends BaseEntity {
 

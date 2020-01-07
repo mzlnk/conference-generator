@@ -8,6 +8,7 @@ import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 import pl.mzlnk.conferencegenerator.model.entity.order.WorkshopOrderItem;
 
 @Getter
+@TableOrder(5)
 @Table(name = "workshop_attendee")
 public class WorkshopAttendee extends BaseEntity {
 
