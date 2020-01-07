@@ -1,6 +1,8 @@
 package pl.mzlnk.conferencegenerator;
 
 import lombok.NoArgsConstructor;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import pl.mzlnk.conferencegenerator.generator.entity.EntityGenerators;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.mssql.MsSqlGenerator;
@@ -20,6 +22,8 @@ public class ConferenceGenerator extends Application {
         app.run();
     }
 
+    private Logger logger;
+
     private FileService fileService;
     private ConferenceGeneratorProperties properties;
 
@@ -36,6 +40,8 @@ public class ConferenceGenerator extends Application {
 
     @Override
     protected void init() {
+        logger = Logger.getLogger(this.getClass());
+
         fileService = FileServiceImpl.init();
         properties = new ConferenceGeneratorProperties(fileService);
 
@@ -48,8 +54,8 @@ public class ConferenceGenerator extends Application {
 
     @Override
     protected void run() {
-        entityGenerators.generate();
-        sqlGenerator.generateSqlFile();
+        //entityGenerators.generate();
+        //sqlGenerator.generateSqlFile();
     }
 
 }

@@ -8,13 +8,17 @@ public class CalendarUtil {
 
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public static Calendar fromString(String str) {
+    public static Calendar fromString(String str, String defaultValue) {
         Calendar cal = Calendar.getInstance();
 
         try {
             cal.setTime(FORMAT.parse(str));
         } catch (ParseException e) {
-            e.printStackTrace(); // todo: add log support here
+            try {
+                cal.setTime(FORMAT.parse(defaultValue));
+            } catch (ParseException e2) {
+                e.printStackTrace();;
+            }
         }
 
         return cal;
