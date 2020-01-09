@@ -21,7 +21,7 @@ abstract class BaseDataRepository<E> implements DataRepository<E> {
     protected abstract void loadData(FileService fileService);
 
     @Override
-    public final List<E> randomEntries(int amount) {
+    public List<E> randomEntries(int amount) {
         List<E> entries = new ArrayList<>();
 
         for(int i = 0; i < amount; i++) {

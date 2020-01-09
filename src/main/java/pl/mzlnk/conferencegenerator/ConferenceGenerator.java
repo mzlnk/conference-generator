@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 import pl.mzlnk.conferencegenerator.generator.entity.EntityGenerators;
 import pl.mzlnk.conferencegenerator.generator.sql.SqlGenerator;
 import pl.mzlnk.conferencegenerator.generator.sql.impl.mssql.MsSqlGenerator;
+import pl.mzlnk.conferencegenerator.model.entity.EntityType;
+import pl.mzlnk.conferencegenerator.model.entity.attendee.Attendee;
 import pl.mzlnk.conferencegenerator.properties.ConferenceGeneratorProperties;
 import pl.mzlnk.conferencegenerator.repository.data.DataRepositories;
 import pl.mzlnk.conferencegenerator.repository.entity.EntityRepositories;
@@ -54,8 +56,13 @@ public class ConferenceGenerator extends Application {
 
     @Override
     protected void run() {
-        //entityGenerators.generate();
-        //sqlGenerator.generateSqlFile();
+        entityGenerators.generate();
+
+        entityRepositories.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "xd", 23));
+
+        sqlGenerator.generateSqlFile();
+
+
     }
 
 }

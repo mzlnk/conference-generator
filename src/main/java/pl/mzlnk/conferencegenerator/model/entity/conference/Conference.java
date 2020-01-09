@@ -29,4 +29,7 @@ public class Conference extends BaseEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "student_discount")
+    private double studentDiscount;
+
 }
