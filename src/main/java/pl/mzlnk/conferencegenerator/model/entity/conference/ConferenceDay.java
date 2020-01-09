@@ -15,7 +15,7 @@ public class ConferenceDay extends BaseEntity {
 
     @Builder
     public ConferenceDay(int conferenceDayId, int conferenceId, Calendar date) {
-        super(EntityType.CONFERENCE_DAY);
+        super(EntityType.CONFERENCE_DAY, conferenceDayId);
 
         this.conferenceDayId = conferenceDayId;
         this.conferenceId = conferenceId;

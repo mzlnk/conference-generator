@@ -13,7 +13,7 @@ public class StudentAttendee extends BaseEntity {
 
     @Builder
     public StudentAttendee(int attendeeId, int studentCardId) {
-        super(EntityType.STUDENT_ATTENDEE);
+        super(EntityType.STUDENT_ATTENDEE, attendeeId);
 
         this.attendeeId = attendeeId;
         this.studentCardId = studentCardId;

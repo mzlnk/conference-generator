@@ -13,7 +13,7 @@ public class Company extends BaseEntity {
 
     @Builder
     public Company(int companyId, String name, String address, String phone) {
-        super(EntityType.COMPANY);
+        super(EntityType.COMPANY, companyId);
 
         this.companyId = companyId;
         this.name = name;

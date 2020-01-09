@@ -12,7 +12,7 @@ public class WorkshopDetails {
 
     private String name;
     private String description;
-    private double price;
+    private int price;
     private int attendeesLimit;
 
 }

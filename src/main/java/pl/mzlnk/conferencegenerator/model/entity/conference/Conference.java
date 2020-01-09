@@ -5,17 +5,21 @@ import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 import pl.mzlnk.conferencegenerator.model.entity.BaseEntity;
 import pl.mzlnk.conferencegenerator.model.entity.EntityType;
 
+import java.util.Calendar;
+
 @Getter
 @TableOrder(0)
 @Table(name = "conference")
 public class Conference extends BaseEntity {
 
-    public Conference(int conferenceId, String name, String description) {
-        super(EntityType.CONFERENCE);
+    public Conference(int conferenceId, String name, String description, int studentDiscount, Calendar date) {
+        super(EntityType.CONFERENCE, conferenceId);
 
         this.conferenceId = conferenceId;
         this.name = name;
         this.description = description;
+        this.studentDiscount = studentDiscount;
+        this.date = date;
     }
 
     @PrimaryKey
@@ -30,6 +34,8 @@ public class Conference extends BaseEntity {
     private String description;
 
     @Column(name = "student_discount")
-    private double studentDiscount;
+    private int studentDiscount;
+
+    private Calendar date;
 
 }

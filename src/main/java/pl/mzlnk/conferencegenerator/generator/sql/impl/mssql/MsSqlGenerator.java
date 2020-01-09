@@ -67,6 +67,7 @@ public class MsSqlGenerator extends BaseSqlGenerator {
         data.addAll(
                 Stream.of(repositoryParser.getFields())
                         .map(SqlEntityFieldParser::new)
+                        .filter(SqlEntityFieldParser::isColumn)
                         .map(parser -> {
                             return DATA_TYPE_SQL_PATTERN
                                     .replace("{column}", parser.getColumnName())
@@ -81,6 +82,7 @@ public class MsSqlGenerator extends BaseSqlGenerator {
         data.addAll(
                 Stream.of(repositoryParser.getFields())
                         .map(SqlEntityFieldParser::new)
+                        .filter(SqlEntityFieldParser::isColumn)
                         .filter(SqlEntityFieldParser::isForeignKey)
                         .map(parser -> {
                             return FOREIGN_KEY_SQL_PATTERN
@@ -108,11 +110,15 @@ public class MsSqlGenerator extends BaseSqlGenerator {
 
         List<String> columns = Stream.of(entity.getClass().getDeclaredFields())
                 .map(field -> new SqlEntityFieldParser(field, entity))
+                .filter(SqlEntityFieldParser::isColumn)
+                .filter(p -> !p.isAutoIncrement())
                 .map(SqlEntityFieldParser::getColumnName)
                 .collect(Collectors.toList());
 
         List<String> values = Stream.of(entity.getClass().getDeclaredFields())
                 .map(field -> new SqlEntityFieldParser(field, entity))
+                .filter(SqlEntityFieldParser::isColumn)
+                .filter(p -> !p.isAutoIncrement())
                 .map(SqlEntityFieldParser::getStringValue)
                 .collect(Collectors.toList());
 

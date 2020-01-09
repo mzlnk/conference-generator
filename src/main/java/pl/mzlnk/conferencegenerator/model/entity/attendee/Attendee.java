@@ -13,7 +13,7 @@ public class Attendee extends BaseEntity {
 
     @Builder
     public Attendee(int attendeeId, String firstName, String lastName, String email, int companyId) {
-        super(EntityType.ATTENDEE);
+        super(EntityType.ATTENDEE, attendeeId);
 
         this.attendeeId = attendeeId;
         this.firstName = firstName;

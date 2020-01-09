@@ -16,13 +16,13 @@ import static pl.mzlnk.conferencegenerator.utils.RandomUtil.r;
 
 class WorkshopDetailsRepository extends BaseDataRepository<WorkshopDetails> {
 
-    private static final String NAMES_FILE = "workshop-details-names.json";
+    private static final String NAMES_FILE = "workshop-details.json";
 
     private ConferenceGeneratorProperties properties;
 
-    private List<WorkshopDetails> details = new ArrayList<>();
+    private List<WorkshopDetails> details;
 
-    private int detailsSize = 0;
+    private int detailsSize;
 
     WorkshopDetailsRepository(FileService fileService, ConferenceGeneratorProperties properties) {
         super(DataType.WORKSHOP_DETAILS, fileService);
@@ -34,7 +34,7 @@ class WorkshopDetailsRepository extends BaseDataRepository<WorkshopDetails> {
     protected WorkshopDetails randomEntry() {
         WorkshopDetails workshop = details.get(r.nextInt(detailsSize));
 
-        double price = r.nextDouble() * (properties.getWorkshopPriceMax() - properties.getWorkshopPriceMin()) + properties.getWorkshopPriceMin();
+        int price = r.nextInt(200);
         int attendeesLimit = r.nextInt(properties.getWorkshopAttendeesLimitMax() - properties.getWorkshopAttendeesLimitMin()) + properties.getWorkshopAttendeesLimitMin();
 
         workshop.setAttendeesLimit(attendeesLimit);
@@ -51,6 +51,7 @@ class WorkshopDetailsRepository extends BaseDataRepository<WorkshopDetails> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.details = Arrays.asList(gson.fromJson(fr, WorkshopDetails[].class));
+                        this.detailsSize = this.details.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }

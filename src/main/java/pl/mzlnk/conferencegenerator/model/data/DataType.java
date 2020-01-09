@@ -5,6 +5,8 @@ public enum DataType {
     PERSON,
     ADDRESS,
     CONFERENCE_DETAILS,
-    WORKSHOP_DETAILS;
+    WORKSHOP_DETAILS,
+    COMPANY_NAME,
+    PHONE;
 
 }

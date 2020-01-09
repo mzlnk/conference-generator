@@ -14,7 +14,7 @@ public class ConferenceDayOrderItem extends BaseEntity {
 
     @Builder
     public ConferenceDayOrderItem(int conferenceDayOrderItemId, int orderId, int conferenceDayId) {
-        super(EntityType.CONFERENCE_DAY_ORDER_ITEM);
+        super(EntityType.CONFERENCE_DAY_ORDER_ITEM, conferenceDayOrderItemId);
 
         this.conferenceDayOrderItemId = conferenceDayOrderItemId;
         this.orderId = orderId;

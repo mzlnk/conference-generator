@@ -14,8 +14,8 @@ import java.util.Calendar;
 public class Workshop extends BaseEntity {
 
     @Builder
-    public Workshop(int workshopId, int conferenceDayId, String name, String description, double price, Calendar dateStart, Calendar dateEnd, int attendeesLimit) {
-        super(EntityType.WORKSHOP);
+    public Workshop(int workshopId, int conferenceDayId, String name, String description, int price, Calendar dateStart, Calendar dateEnd, int attendeesLimit) {
+        super(EntityType.WORKSHOP, workshopId);
 
         this.workshopId = workshopId;
         this.conferenceDayId = conferenceDayId;
@@ -43,7 +43,7 @@ public class Workshop extends BaseEntity {
     private String description;
 
     @Column(name = "price")
-    private double price;
+    private int price;
 
     @Column(name = "date_start")
     private Calendar dateStart;

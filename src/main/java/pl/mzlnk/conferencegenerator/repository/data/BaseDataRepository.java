@@ -31,4 +31,9 @@ abstract class BaseDataRepository<E> implements DataRepository<E> {
         return entries;
     }
 
+    @Override
+    public List<E> findAll() {
+        return new ArrayList<>();
+    }
+
 }

@@ -15,7 +15,7 @@ public class Buyer extends BaseEntity {
 
     @Builder
     public Buyer(int buyerId, int companyId, String firstName, String lastName, String address) {
-        super(EntityType.BUYER);
+        super(EntityType.BUYER, buyerId);
 
         this.buyerId = buyerId;
         this.companyId = companyId;

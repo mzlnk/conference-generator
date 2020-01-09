@@ -8,13 +8,13 @@ import pl.mzlnk.conferencegenerator.generator.sql.utils.annotation.*;
 import pl.mzlnk.conferencegenerator.model.entity.order.ConferenceDayOrderItem;
 
 @Getter
-@TableOrder(2)
+@TableOrder(4)
 @Table(name = "conference_day_attendee")
 public class ConferenceDayAttendee extends BaseEntity {
 
     @Builder
     public ConferenceDayAttendee(int conferenceDayAttendeeId, int attendeeId, int conferenceDayOrderItemId) {
-        super(EntityType.CONFERENCE_DAY_ATTENDEE);
+        super(EntityType.CONFERENCE_DAY_ATTENDEE, conferenceDayAttendeeId);
 
         this.conferenceDayAttendeeId = conferenceDayAttendeeId;
         this.attendeeId = attendeeId;

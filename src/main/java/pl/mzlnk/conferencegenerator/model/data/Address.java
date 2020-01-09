@@ -12,7 +12,7 @@ public class Address {
     public Address(String country, String city, String street, int streetNumber) {
         this.address = ADDRESS_PATTERN
                 .replace("{street}", street)
-                .replace("{streetNumber}", String.valueOf(streetNumber))
+                .replace("{street_number}", String.valueOf(streetNumber))
                 .replace("{city}", city)
                 .replace("{country}", country);
     }

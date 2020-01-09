@@ -17,9 +17,9 @@ class ConferenceDetailsRepository extends BaseDataRepository<ConferenceDetails> 
 
     private static final String NAMES_FILE = "conference-details.json";
 
-    private List<ConferenceDetails> details = new ArrayList<>();
+    private List<ConferenceDetails> details;
 
-    private int detailsSize = 0;
+    private int detailsSize;
 
     ConferenceDetailsRepository(FileService fileService) {
         super(DataType.CONFERENCE_DETAILS, fileService);
@@ -27,7 +27,9 @@ class ConferenceDetailsRepository extends BaseDataRepository<ConferenceDetails> 
 
     @Override
     protected ConferenceDetails randomEntry() {
-        return details.get(r.nextInt(detailsSize));
+        ConferenceDetails conference = details.get(r.nextInt(this.detailsSize));
+        conference.setStudentDiscount(r.nextDouble() * 100);
+        return conference;
     }
 
     @Override
@@ -37,7 +39,9 @@ class ConferenceDetailsRepository extends BaseDataRepository<ConferenceDetails> 
         fileService.findFile(FileService.Directory.DATA, NAMES_FILE)
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
-                        this.details = Arrays.asList(gson.fromJson(fr, ConferenceDetails[].class));
+                        details = Arrays.asList(gson.fromJson(fr, ConferenceDetails[].class));
+                        detailsSize = details.size();
+                        System.out.println("Loaded " + this.detailsSize + " conference details");
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }

@@ -18,11 +18,11 @@ class PersonRepository extends BaseDataRepository<Person> {
     private static final String FIRST_NAMES_FILE = "person-firstnames.json";
     private static final String LAST_NAMES_FILE = "person-lastnames.json";
 
-    private List<String> firstNames = new ArrayList<>();
-    private List<String> lastNames = new ArrayList<>();
+    private List<String> firstNames;
+    private List<String> lastNames;
 
-    private int firstNamesSize = 0;
-    private int lastNamesSize = 0;
+    private int firstNamesSize;
+    private int lastNamesSize;
 
     PersonRepository(FileService fileService) {
         super(DataType.PERSON, fileService);
@@ -44,6 +44,7 @@ class PersonRepository extends BaseDataRepository<Person> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.firstNames = Arrays.asList(gson.fromJson(fr, String[].class));
+                        this.firstNamesSize = this.firstNames.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }
@@ -53,6 +54,7 @@ class PersonRepository extends BaseDataRepository<Person> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.lastNames = Arrays.asList(gson.fromJson(fr, String[].class));
+                        this.lastNamesSize = this.lastNames.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }

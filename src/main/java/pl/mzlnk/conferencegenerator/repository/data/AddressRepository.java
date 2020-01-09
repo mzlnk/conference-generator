@@ -24,13 +24,13 @@ class AddressRepository extends BaseDataRepository<Address> {
     private static final int MIN_STREET_NUMBER = 1;
     private static final int MAX_STREET_NUMBER = 1000;
 
-    private List<String> countries = new ArrayList<>();
-    private List<String> cities = new ArrayList<>();
-    private List<String> streets = new ArrayList<>();
+    private List<String> countries;
+    private List<String> cities;
+    private List<String> streets;
 
-    private int countriesSize = 0;
-    private int citiesSize = 0;
-    private int streetsSize = 0;
+    private int countriesSize;
+    private int citiesSize;
+    private int streetsSize;
 
     AddressRepository(FileService fileService) {
         super(DataType.ADDRESS, fileService);
@@ -54,6 +54,7 @@ class AddressRepository extends BaseDataRepository<Address> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.countries = Arrays.asList(gson.fromJson(fr, String[].class));
+                        this.countriesSize = this.countries.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }
@@ -63,6 +64,7 @@ class AddressRepository extends BaseDataRepository<Address> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.cities = Arrays.asList(gson.fromJson(fr, String[].class));
+                        this.citiesSize = this.cities.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }
@@ -72,6 +74,7 @@ class AddressRepository extends BaseDataRepository<Address> {
                 .ifPresent(file -> {
                     try (FileReader fr = new FileReader(file)) {
                         this.streets = Arrays.asList(gson.fromJson(fr, String[].class));
+                        this.streetsSize = this.streets.size();
                     } catch (IOException e) {
                         e.printStackTrace(); // todo: add log support here
                     }

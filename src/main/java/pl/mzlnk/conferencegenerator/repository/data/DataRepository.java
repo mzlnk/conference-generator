@@ -8,5 +8,6 @@ public interface DataRepository<E> {
 
     DataType getDataType();
     List<E> randomEntries(int amount);
+    List<E> findAll();
 
 }

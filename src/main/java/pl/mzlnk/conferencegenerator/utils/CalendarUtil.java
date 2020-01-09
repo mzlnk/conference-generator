@@ -8,6 +8,10 @@ public class CalendarUtil {
 
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    public static Calendar fromString(String str) {
+        return fromString(str, "2000-01-01 12:00:00");
+    }
+
     public static Calendar fromString(String str, String defaultValue) {
         Calendar cal = Calendar.getInstance();
 
@@ -22,6 +26,10 @@ public class CalendarUtil {
         }
 
         return cal;
+    }
+
+    public static String toString(Calendar cal) {
+        return FORMAT.format(cal.getTime());
     }
 
 }

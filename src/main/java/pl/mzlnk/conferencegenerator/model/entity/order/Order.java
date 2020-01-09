@@ -10,12 +10,12 @@ import java.util.Calendar;
 
 @Getter
 @TableOrder(2)
-@Table(name = "order")
+@Table(name = "orders")
 public class Order extends BaseEntity {
 
     @Builder
-    public Order(int orderId, int buyerId, boolean cancelled, PaymentType paymentType, double value, Calendar date) {
-        super(EntityType.ORDER);
+    public Order(int orderId, int buyerId, boolean cancelled, PaymentType paymentType, int value, Calendar date) {
+        super(EntityType.ORDER, orderId);
 
         this.orderId = orderId;
         this.buyerId = buyerId;
@@ -41,7 +41,7 @@ public class Order extends BaseEntity {
     private PaymentType paymentType;
 
     @Column(name = "value")
-    private double value;
+    private int value;
 
     @Column(name = "date")
     private Calendar date;

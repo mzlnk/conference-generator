@@ -19,14 +19,16 @@ public class DataRepositories {
         repositories.registerRepository(new AddressRepository(fileService));
         repositories.registerRepository(new ConferenceDetailsRepository(fileService));
         repositories.registerRepository(new WorkshopDetailsRepository(fileService, properties));
+        repositories.registerRepository(new CompanyNamesRepository(fileService));
+        repositories.registerRepository(new PhoneRepository(fileService));
 
         return repositories;
     }
 
     private Map<DataType, DataRepository<?>> repositories = new HashMap<>();
 
-    public DataRepository<?> getRepository(DataType dataType) {
-        return repositories.get(dataType);
+    public <E> DataRepository<E> getRepository(DataType dataType) {
+        return (DataRepository<E>) repositories.get(dataType);
     }
 
     private void registerRepository(DataRepository<?> repository) {

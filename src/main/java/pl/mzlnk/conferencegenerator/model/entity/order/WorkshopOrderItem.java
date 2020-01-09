@@ -14,7 +14,7 @@ public class WorkshopOrderItem extends BaseEntity {
 
     @Builder
     public WorkshopOrderItem(int workshopOrderItemId, int conferenceDayOrderId, int workshopId) {
-        super(EntityType.WORKSHOP_ORDER_ITEM);
+        super(EntityType.WORKSHOP_ORDER_ITEM, workshopOrderItemId);
 
         this.workshopOrderItemId = workshopOrderItemId;
         this.conferenceDayOrderId = conferenceDayOrderId;

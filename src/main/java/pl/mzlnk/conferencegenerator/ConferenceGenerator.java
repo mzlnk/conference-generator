@@ -50,7 +50,7 @@ public class ConferenceGenerator extends Application {
         entityRepositories = EntityRepositories.init();
         dataRepositories = DataRepositories.init(fileService, properties);
 
-        entityGenerators = EntityGenerators.init();
+        entityGenerators = EntityGenerators.init(entityRepositories, dataRepositories);
         sqlGenerator = new MsSqlGenerator(fileService, entityRepositories, properties);
     }
 
@@ -58,7 +58,7 @@ public class ConferenceGenerator extends Application {
     protected void run() {
         entityGenerators.generate();
 
-        entityRepositories.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "xd", 23));
+        //entityRepositories.getRepository(EntityType.ATTENDEE).createOrUpdate(new Attendee(1, "John", "Smiths", "xd", 23));
 
         sqlGenerator.generateSqlFile();
 
