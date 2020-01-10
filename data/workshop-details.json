@@ -1,42 +1,12 @@
 [
-  {
-    "name": "Workshop 1",
-    "description": "Desc 1"
-  },
-  {
-    "name": "Workshop 2",
-    "description": "Desc 2"
-  },
-  {
-    "name": "Workshop 3",
-    "description": "Desc 3"
-  },
-  {
-    "name": "Workshop 4",
-    "description": "Desc 4"
-  },
-  {
-    "name": "Workshop 5",
-    "description": "Desc 5"
-  },
-  {
-    "name": "Workshop 6",
-    "description": "Desc 6"
-  },
-  {
-    "name": "Workshop 7",
-    "description": "Desc 7"
-  },
-  {
-    "name": "Workshop 8",
-    "description": "Desc 8"
-  },
-  {
-    "name": "Workshop 9",
-    "description": "Desc 9"
-  },
-  {
-    "name": "Workshop 10",
-    "description": "Desc 10"
-  }
+  {"name": "Warsztat #1", "description": "Warsztaty z programowania"},
+  {"name": "Warsztat #2", "description": "Warsztaty z programowania"},
+  {"name": "Warsztat #3", "description": "Warsztaty z programowania"},
+  {"name": "Warsztat #4", "description": "Warsztaty z programowania"},
+  {"name": "Warsztat #5", "description": "Warsztaty z programowania"},
+  {"name": "Warsztat #6", "description": "Warsztaty z soft skillsow"},
+  {"name": "Warsztat #7", "description": "Warsztaty z soft skillsow"},
+  {"name": "Warsztat #8", "description": "Warsztaty z soft skillsow"},
+  {"name": "Warsztat #9", "description": "Warsztaty ogolnorozwijajace"},
+  {"name": "Warsztat #10", "description": "Warsztaty ogolnorozwijajace"}
 ]
