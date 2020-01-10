@@ -32,7 +32,9 @@ class ConferenceDayPriceGenerator extends BaseEntityGenerator {
 
                     for(int i = 0; i < prices; i++) {
                         Calendar expirationDate = (Calendar) conferenceDay.getDate().clone();
-                        expirationDate.add(Calendar.DAY_OF_MONTH, - 7 * i);
+                        if(i > 0) {
+                            expirationDate.add(Calendar.DAY_OF_MONTH, -7 * i);
+                        }
 
                         String description = (i != 0 ? discountDescription.replace("{discount}", String.valueOf(i * 10)) : baseDescription);
 

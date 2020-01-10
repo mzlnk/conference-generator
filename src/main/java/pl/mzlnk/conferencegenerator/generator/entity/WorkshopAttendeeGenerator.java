@@ -57,10 +57,28 @@ class WorkshopAttendeeGenerator extends BaseEntityGenerator {
 
                     int conferenceDayOrderItemId = workshopOrderItem.getConferenceDayOrderId();
 
+                    Workshop workshop = workshopRepository.findById(workshopOrderItem.getWorkshopId()).get();
+
                     List<ConferenceDayAttendee> applicableAttendees = conferenceDayAttendeeRepository
                             .findAll()
                             .stream()
                             .filter(cda -> cda.getConferenceDayOrderItemId() == conferenceDayOrderItemId)
+                            .filter(cda -> {
+                                return workshopAttendeeRepository
+                                        .findAll()
+                                        .stream()
+                                        .filter(wa -> wa.getConferenceDayAttendeeId() == cda.getConferenceDayAttendeeId())
+                                        .map(wa -> workshopOrderItemRepository.findById(wa.getWorkshopOrderItemId()))
+                                        .filter(Optional::isPresent)
+                                        .map(Optional::get)
+                                        .map(woi -> workshopRepository.findById(woi.getWorkshopId()))
+                                        .filter(Optional::isPresent)
+                                        .map(Optional::get)
+                                        .noneMatch(w -> {
+                                            return (workshop.getDateStart().after(w.getDateStart()) && workshop.getDateStart().before(w.getDateEnd())
+                                                    || (workshop.getDateEnd().after(w.getDateStart()) && workshop.getDateStart().before(w.getDateStart())));
+                                        });
+                            })
                             .collect(Collectors.toList());
 
                     Collections.shuffle(applicableAttendees);

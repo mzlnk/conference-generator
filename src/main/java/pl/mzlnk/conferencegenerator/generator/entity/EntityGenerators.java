@@ -46,7 +46,7 @@ public class EntityGenerators {
                 .sorted(new EntityGeneratorDependencyComparator())
                 .forEach(EntityGenerator::generate);
 
-        this.cleanupGenerators.forEach(EntityGenerator::generate);
+        // this.cleanupGenerators.forEach(EntityGenerator::generate);
     }
 
     private void registerGenerator(EntityGenerator generator) {
