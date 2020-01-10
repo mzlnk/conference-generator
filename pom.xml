@@ -6,7 +6,7 @@
 
     <groupId>pl.mzlnk</groupId>
     <artifactId>conference-generator</artifactId>
-    <version>1.0</version>
+    <version>1.0-RELEASE</version>
 
     <build>
         <finalName>ConferenceGenerator</finalName>
